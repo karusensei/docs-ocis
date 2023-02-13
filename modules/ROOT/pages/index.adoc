@@ -6,11 +6,11 @@
 :ocis_youtube_long_url: https://www.youtube.com/watch?v=C4a4q9IGyFQ&list=PLXpTv1ixYy3-b5LScHyYqMNwEsZYgejdX&index=16
 :ocis_youtube_short_url: C4a4q9IGyFQ
 
-:description: Welcome to the Infinite Scale documentation. Infinite Scale is a data platform providing tools to integrate, organize, share and govern data and metadata. This guide provides information on general topics, on installation and administrative tasks for Infinite Scale.
+:description: Infinite Scale is a data platform providing tools to integrate, organize, share and govern data and metadata. This guide provides information on general topics, on installation and administrative tasks for Infinite Scale.
 
 == Introduction
 
-{description}
+Welcome to the Infinite Scale documentation. {description}
 
 === Target Audience
 
@@ -44,6 +44,8 @@ video::{ocis_youtube_short_url}[youtube]
 
 == Brief Overview
 
+NOTE: In configuration variables and comments, you'll often come across the word oCIS or ocis, short for "ownCloud Infinite Scale", while the product is simply called Infinite Scale.
+
 === Architecture and Concepts
 
 To learn more about Infinite Scale, check out the xref:architecture/architecture.adoc[Architecture and Concepts] section first. This information may help deciding which environment is optimal for your use case and which hardware fits your needs best.
@@ -66,6 +68,10 @@ NOTE: We highly recommend reading the xref:deployment/general/general-info.adoc[
 
 Configuration of Infinite Scale might be quite different to what you are used to but it's very simple. It works with environment variables and optional configuration files for you to create depending on your specific needs. The settings in configuration files can always be overruled by setting the respective environment variables manually on the command line.
 
+== End-User License Agreement (EULA)
+
+ownCloud provides an EULA to clarify, among various topics, who can use this software and which conditions apply to the groups of users defined. See the actual link:{attachmentsdir}/introduction/oCIS_EULA_11052022_final.pdf[EULA, window=_blank] for details.
+
 
 ////
 
@@ -77,5 +83,3 @@ Since the integrity and sovereignty of your data is the really important thing w
 
 If you already have an ownCloud 10 server running, you'll find the xref:migration/index.adoc[Migration] section most interesting.
 ////
-
-NOTE: In configuration variables and comments, you'll often come across the word oCIS or ocis, short for "ownCloud Infinite Scale", while the product is simply called Infinite Scale.
