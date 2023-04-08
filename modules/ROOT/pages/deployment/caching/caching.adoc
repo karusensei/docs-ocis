@@ -1,0 +1,36 @@
+= Caching
+:toc: right
+:description: Setup caching can not only be a big boost on performance but can also be essential when setting up Infinite Scale via container orchestration.
+
+== Introduction
+
+{description} Caching is also recommended for some services like to persist event data for later processing, not limited to but especially when the underlaying services are scaled via xref:deployment/container/orchestration/orchestration.adoc[container orchestration].
+
+== General Considerations
+
+These are the main aspects that require caching:
+
+* *Performance*: This kind of cache does not need to be persistent and in case of outages, the cache gets rebuild and no information is lost. This is typically used for caching metadata and filesystem access.
+* *Persistance*: With this kind of caching, storing information temporarily on a persistent media is key. This kind of cache is used for generated events that are saved for later use like returning status info to users when requested. If this data gets lost, users will not get informed about state changes happened.
+* *Scaling*: When services are scaled horizontally, a common and mostly persistent base for data is necessary.
+
+Cache types:
+
+* The memory cache is the fastest cache. It is not suitable for all requirements as it has no persistence. It can be used for deployments where persistence is not a requirement or a high priority.
+
+* An external cache like `redis`, `redis-setinel`, `etcd`, `nats-js` is usually installed on own hardware and requires its own performance, availability and scalability measures. These caches are connected via a fast network. Infinite Scale connects to these caches and uses their services like a blackbox.
+
+When searching for `OCIS_CACHE_STORE_TYPE` in xref:deployment/services/env-vars-special-scope.adoc#global-environment-variables[Global Environment Variables], you will get a list of services where caching is used.
+
+== Performance Caching
+
+To setup a cache to improve performance is essential when using the `ini` backend for metadata. This greatly reduces physical access to metadata or stat information residing on the filesystem.
+
+The relevant services for caching metatdata are xref:{s-path}/storage-system.adoc[storage-system] and xref:{s-path}/storage-users.adoc[storage-users].
+
+
+== Persistence Caching
+
+xref:{s-path}/eventhistory.adoc[eventhistory]
+
+xref:{s-path}/userlog.adoc[userlog]
